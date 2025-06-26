@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #ffeef2;
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .press-btn, .more-btn {
+      background-color: #e63946;
+      color: white;
+      font-size: 18px;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .press-btn:hover, .more-btn:hover {
+      background-color: #d62839;
+    }
+
+    .card-wrapper, .second-card-wrapper {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #ffeef2;
+      flex-direction: column;
+    }
+
+    .card {
+      background-color: white;
+      border: 2px solid #ffcdd2;
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+      position: relative;
+      text-align: left;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #b03060;
+    }
+
+    .card p {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 14px;
+      color: #f48fb1;
+      opacity: 0.6;
+    }
+
+    .heart1 { top: 8px; left: 8px; }
+    .heart2 { top: 8px; right: 8px; }
+    .heart3 { bottom: 8px; left: 8px; }
+    .heart4 { bottom: 8px; right: 8px; }
+    .heart5 { top: 50%; left: -14px; transform: translateY(-50%); }
+    .heart6 { top: 50%; right: -14px; transform: translateY(-50%); }
+
+    .attachments {
+      margin-top: 20px;
+    }
+
+    .attachments a {
+      display: block;
+      margin-bottom: 8px;
+      color: #b03060;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .attachments a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla inicial -->
+  <div class="container" id="start-screen">
+    <button class="press-btn" onclick="showCard()">PRESS</button>
+  </div>
+
+  <!-- Primera carta -->
+  <div class="card-wrapper" id="card-wrapper">
+    <div class="card">
+      <div class="heart heart1">❤️</div>
+      <div class="heart heart2">💗</div>
+      <div class="heart heart3">💖</div>
+      <div class="heart heart4">💘</div>
+      <div class="heart heart5">💕</div>
+      <div class="heart heart6">💓</div>
+      <h2>Ale💙🤍💙</h2>
+      <p>
+        No sabía cómo decirte todo esto, así que lo dejo por escrito.<br><br>
+        Gracias por existir en mi vida, incluso si hoy caminamos en distintas direcciones.<br>
+        Fuiste alegría, aprendizaje y una parte muy bonita de mis días.<br><br>
+        Solo quiero recordarte que sos una persona fuerte, inteligente y capaz, yo se que hoy en dia todo es diferente para nosotras pero eso no significa que me haya olvidado o no me preocupe por vos pequeña, siempre estare presente si es que asi lo queres aunque sea solo para escucharte o apoyarte en lo que necesites, no estas sola y lamento el pasado, pero hoy en tu dia te deseo lo mejor del mundo, que sigas triunfando y logrando tus sueños, siempre voy a estar ya sea de lejos o de cerca festejando tus logros alcanzados, siempre voy a estar orgullosa de vos asi como vos estuviste orgullosa de mi en el pasado.<br><br>
+        Con amor espero que la pases muy lindo en tu dia y te hagan sentir amada y acompañada. (yo y perin te extrañamos mucho). <br>
+      </p>
+      <button class="more-btn" onclick="showSecondCard()">Quiero mostrarte algo</button>
+    </div>
+  </div>
+
+  <!-- Segunda carta -->
+  <div class="second-card-wrapper" id="second-card-wrapper">
+    <div class="card">
+      <h2>Un pequeño recuerdo</h2>
+      <p>
+        Si alguna vez te sentís sola o dudas cuanto te ame, solo lee la carta y el PDF.<br><br>
+        Estos recuerditos es lo que no logre mandarte ese dia, lo sigo teniendo pero aqui esta la version digital exactamente de lo que te iba a dar en persona, no queria que no veas.<br><br>
+        Esta carta y PDF es la cajita que te mande foto y lo hice para dartelo el 14 de febrero pero no se pudo, espero que lo veas con calma lo que era para ese dia.
+      </p>
+
+      <div class="attachments">
+        <h3>Archivos para vos:</h3>
+        <!-- Cambiá los enlaces por tus propios archivos -->
+        <a href="Ale (1).pdf" target="_blank">📄 Carta en PDF</a>
+        <a href="Carta Amor Fotografía Rojo y blanco.jpg" target="_blank">🖼 Otro recuerdo</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showCard() {
+      document.getElementById("start-screen").style.display = "none";
+      document.getElementById("card-wrapper").style.display = "flex";
+    }
+
+    function showSecondCard() {
+      document.getElementById("card-wrapper").style.display = "none";
+      document.getElementById("second-card-wrapper").style.display = "flex";
+    }
+  </script>
+</body>
+</html>
